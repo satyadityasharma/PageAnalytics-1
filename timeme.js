@@ -144,7 +144,7 @@
 					time: time
 
 				});
-				alert(json);
+				//alert(json);
 				socket.send(json);
 			}
 		})();
