@@ -27,7 +27,7 @@
 })()({
 	1: [function (require, module, exports) {
 		const TimeMe = require('./timeme');
-		var timerStart = Date.now();
+		//var timerStart = Date.now();
 		(function () {
 			var socket = new WebSocket("wss://montaignelabs.website/");
 			var path = window.location.href;
@@ -44,7 +44,7 @@
 			var time;
 			
 			const $ = window.jQuery;
-			
+			page_load = window.performance.timing-loadEventEnd - window.performance.timing.responseEnd;
 			$(document).ready(function () {
 				date =
 					currentdate.getFullYear() + "-" +
@@ -55,7 +55,7 @@
 					currentdate.getSeconds();
 				
 				
-				page_load = window.performance.timing-loadEventEnd - window.performance.timing.responseEnd;
+				
 			  
 				TimeMe.initialize({
 					currentPageName: path,
