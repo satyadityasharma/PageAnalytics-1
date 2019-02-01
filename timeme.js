@@ -53,12 +53,12 @@
 					currentdate.getMinutes() + ":" +
 					currentdate.getSeconds();
 				
-				setTimeout(function(){
-				window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+				
+				window.onload(function(){window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
 				var timing = performance.timing || {};
 				page_load = timing.loadEventEnd - timing.responseEnd;
 				console.log('Parsetime: ', page_load);
-				}, 0)();
+							});
 				//page_load = Date.now() - timerStart;
 			  
 				TimeMe.initialize({
