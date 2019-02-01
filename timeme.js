@@ -41,25 +41,17 @@
 			var currentdate = new Date();
 			var date;
 			var time;
-			var beforeload = (new Date()).getTime();
+			var starttime = (new Date()).getTime();
 			const $ = window.jQuery;
-			window.onload = getPageLoadTime;
-			function getPageLoadTime(){
-					//calculate the current time in afterload
-					var afterload = (new Date()).getTime();
-					// now use the beforeload and afterload to calculate the seconds
-					page_load = (afterload-beforeload) / 1000;
-					// Place the seconds in the innerHTML to show the results
-					$("#load_time").text('Page load time ::  ' + seconds + ' sec(s).');
-				}
+			
 			$(document).ready(function () {
-				date =
-					currentdate.getFullYear() + "-" +
+				date =  currentdate.getFullYear() + "-" +
 					(currentdate.getMonth() + 1) + "-" +
 					currentdate.getDate();
 				time = currentdate.getHours() + ":" +
 					currentdate.getMinutes() + ":" +
 					currentdate.getSeconds();
+				page_load = (new Date()).getTime() - starttime;
 				
 			        
 				TimeMe.initialize({
