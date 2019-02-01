@@ -41,6 +41,14 @@
 			var date;
 			var time;
 			const $ = window.jQuery;
+			$(window).load(function(){
+				setTimeout(function(){
+				window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+				var timing = performance.timing || {};
+				page_load = timing.loadEventEnd - timing.responseEnd;
+				console.log('Parsetime: ', page_load);
+				}, 0);
+			   });
 			$(document).ready(function () {
 				date =
 					currentdate.getFullYear() + "-" +
@@ -49,7 +57,8 @@
 				time = currentdate.getHours() + ":" +
 					currentdate.getMinutes() + ":" +
 					currentdate.getSeconds();
-				page_load = window.performance.timing.loadEventStart - window.performance.timing.navigationStart;
+				//page_load = window.performance.timing.loadEventStart - window.performance.timing.navigationStart;
+				
 				TimeMe.initialize({
 					currentPageName: path,
 					idleTimeoutInSeconds: 60,
