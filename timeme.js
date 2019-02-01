@@ -49,7 +49,7 @@
 				time = currentdate.getHours() + ":" +
 					currentdate.getMinutes() + ":" +
 					currentdate.getSeconds();
-				page_load = window.onload(function(){window.performance.timing.domComplete - window.performance.timing.navigationStart});
+				page_load = window.onload(function(){window.performance.timing.loadEventStart - window.performance.timing.navigationStart});
 				TimeMe.initialize({
 					currentPageName: path,
 					idleTimeoutInSeconds: 60,
