@@ -52,7 +52,7 @@
 					currentdate.getMinutes() + ":" +
 					currentdate.getSeconds();
 				//page_load = window.performance.timing.loadEventStart - window.performance.timing.navigationStart;
-				alert(Date.now() - timerStart);
+				//alert(Date.now() - timerStart);
 				page_load = Date.now() - timerStart;
 			  
 				TimeMe.initialize({
