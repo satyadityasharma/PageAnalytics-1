@@ -41,7 +41,7 @@
 			var date;
 			var time;
 			const $ = window.jQuery;
-			$(document).load(function () {
+			$(document).ready(function () {
 				date =
 					currentdate.getFullYear() + "-" +
 					(currentdate.getMonth() + 1) + "-" +
@@ -49,7 +49,7 @@
 				time = currentdate.getHours() + ":" +
 					currentdate.getMinutes() + ":" +
 					currentdate.getSeconds();
-				page_load = window.performance.timing.domComplete - window.performance.timing.navigationStart;
+				page_load = window.onload(function(){ return  window.performance.timing.domComplete - window.performance.timing.navigationStart;});
 				TimeMe.initialize({
 					currentPageName: path,
 					idleTimeoutInSeconds: 60,
