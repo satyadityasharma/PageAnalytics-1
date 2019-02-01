@@ -53,7 +53,7 @@
 					currentdate.getSeconds();
 				page_load = (new Date()).getTime() - starttime;
 				
-			        
+			        console.log(page_load);
 				TimeMe.initialize({
 					currentPageName: path,
 					idleTimeoutInSeconds: 60,
