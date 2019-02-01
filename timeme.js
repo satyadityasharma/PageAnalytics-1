@@ -1,5 +1,4 @@
 (function () {
-	
 	function r(e, n, t) {
 		function o(i, f) {
 			if (!n[i]) {
@@ -42,9 +41,17 @@
 			var currentdate = new Date();
 			var date;
 			var time;
-			
+			var beforeload = (new Date()).getTime();
 			const $ = window.jQuery;
-			
+			window.onload = getPageLoadTime;
+			function getPageLoadTime(){
+					//calculate the current time in afterload
+					var afterload = (new Date()).getTime();
+					// now use the beforeload and afterload to calculate the seconds
+					page_load = (afterload-beforeload) / 1000;
+					// Place the seconds in the innerHTML to show the results
+					$("#load_time").text('Page load time ::  ' + seconds + ' sec(s).');
+				}
 			$(document).ready(function () {
 				date =
 					currentdate.getFullYear() + "-" +
@@ -54,14 +61,7 @@
 					currentdate.getMinutes() + ":" +
 					currentdate.getSeconds();
 				
-				
-				setTimeout(function(){
- window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
- var timing = performance.timing || {};
- var parseTime = timing.loadEventEnd - timing.responseEnd;
- console.log('Parsetime: ', parseTime);
- }, 0);
-			  
+			        
 				TimeMe.initialize({
 					currentPageName: path,
 					idleTimeoutInSeconds: 60,
@@ -71,9 +71,7 @@
 						appId: '',
 					}
 				});
-
-
-				
+			
 				(function () {
 					this.addEventListener("mousemove", resetTimer, false);
 					this.addEventListener("mousedown", resetTimer, false);
