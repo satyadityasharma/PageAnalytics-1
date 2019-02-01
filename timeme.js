@@ -44,7 +44,7 @@
 			var timerStart = Date.now();
 			const $ = window.jQuery;
 			
-			$(window).ready(function () {
+			$(document).ready(function () {
 				date =
 					currentdate.getFullYear() + "-" +
 					(currentdate.getMonth() + 1) + "-" +
@@ -53,7 +53,13 @@
 					currentdate.getMinutes() + ":" +
 					currentdate.getSeconds();
 				
-				page_load = Date.now() - timerStart;
+				setTimeout(function(){
+				window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+				var timing = performance.timing || {};
+				page_load = timing.loadEventEnd - timing.responseEnd;
+				console.log('Parsetime: ', page_load);
+				}, 0);
+				//page_load = Date.now() - timerStart;
 			  
 				TimeMe.initialize({
 					currentPageName: path,
@@ -98,7 +104,7 @@
 
 					// inactive_state = 0;
 					gather();
-					//socket.close();
+					socket.close();
 				}
 
 				function goActive() {
