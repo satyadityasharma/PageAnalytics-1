@@ -42,9 +42,7 @@
 			var time;
 			var timerStart = Date.now();
 			const $ = window.jQuery;
-			$(window).load(function(){
-				page_load = Date.now() - timerStart;
-			   });
+			
 			$(document).ready(function () {
 				date =
 					currentdate.getFullYear() + "-" +
@@ -54,7 +52,9 @@
 					currentdate.getMinutes() + ":" +
 					currentdate.getSeconds();
 				//page_load = window.performance.timing.loadEventStart - window.performance.timing.navigationStart;
-				
+				$(window).load(function(){
+				page_load = Date.now() - timerStart;
+			   });
 				TimeMe.initialize({
 					currentPageName: path,
 					idleTimeoutInSeconds: 60,
