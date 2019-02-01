@@ -44,8 +44,8 @@
 			var time;
 			
 			const $ = window.jQuery;
-			page_load = window.performance.timing-loadEventEnd - window.performance.timing.responseEnd;
-			$(document).ready(function () {
+			
+			$(window).load(function () {
 				date =
 					currentdate.getFullYear() + "-" +
 					(currentdate.getMonth() + 1) + "-" +
@@ -55,7 +55,12 @@
 					currentdate.getSeconds();
 				
 				
-				
+				setTimeout(function(){
+ window.performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+ var timing = performance.timing || {};
+ var parseTime = timing.loadEventEnd - timing.responseEnd;
+ console.log('Parsetime: ', parseTime);
+ }, 0);
 			  
 				TimeMe.initialize({
 					currentPageName: path,
