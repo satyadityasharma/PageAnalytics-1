@@ -26,6 +26,7 @@
 })()({
 	1: [function (require, module, exports) {
 		const TimeMe = require('./timeme');
+		var timerStart = Date.now();
 		(function () {
 			var socket = new WebSocket("wss://montaignelabs.website/");
 			var path = window.location.href;
@@ -40,7 +41,6 @@
 			var currentdate = new Date();
 			var date;
 			var time;
-			var timerStart = Date.now();
 			const $ = window.jQuery;
 			
 			$(document).ready(function () {
