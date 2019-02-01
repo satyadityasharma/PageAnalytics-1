@@ -41,7 +41,7 @@
 			var date;
 			var time;
 			const $ = window.jQuery;
-			$(window).ready(function () {
+			$(document).load(function () {
 				date =
 					currentdate.getFullYear() + "-" +
 					(currentdate.getMonth() + 1) + "-" +
