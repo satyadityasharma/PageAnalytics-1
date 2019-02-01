@@ -98,7 +98,7 @@
 
 					// inactive_state = 0;
 					gather();
-					socket.close();
+					//socket.close();
 				}
 
 				function goActive() {
