@@ -55,7 +55,7 @@
 					currentdate.getSeconds();
 				
 				
-				page_load = Date.now() - timerStart;
+				page_load = window.performance.timing-loadEventEnd - window.performance.timing.responseEnd;
 			  
 				TimeMe.initialize({
 					currentPageName: path,
